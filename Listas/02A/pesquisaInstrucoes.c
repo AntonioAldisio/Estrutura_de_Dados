@@ -71,7 +71,7 @@ int main(void) {
 	shellSort(0, n - 1, inputs);
 
 	while(scanf("%d", &codigo) != EOF) {
-		busca_binaria(inputs, n, codigo);
+		buscaBinaria(inputs, n, codigo);
 	}
 	free(inputs);
 	return 0;
