@@ -1,6 +1,5 @@
 # Algortimos de ordenação elementares
 
-
 ## 1. Select Sort
 
 A ordenação por seleção (do inglês, selection sort) é um algoritmo de ordenação baseado em se passar sempre o menor valor do vetor para a primeira posição (ou o maior dependendo da ordem requerida), depois o de segundo menor valor para a segunda posição, e assim é feito sucessivamente com os n-1 elementos restantes, até os últimos dois elementos. Em resumo, ele procura o menor elemento do vetor e coloca no inicio.
@@ -47,7 +46,6 @@ Ideia do Algoritmo:
 - Troque as posiçōes dos elementos se estiverem fora de ordem.
 - Repita os dois passos acima com os primeiros n-1 itens, depois com os primeiros n-2 itens, até que reste apenas um item.
 
-
 ~~~C
 void bolha (Item *v, int l, int r){
     for(int i = l; i< r; i++){
@@ -64,6 +62,7 @@ void bolha (Item *v, int l, int r){
 
 Estável: Não muda a ordem relativa de elementos com valores iguais;
 É mais rapido comparado aos outros.
+
 ~~~C
 void insertionSortSimples(Item *v, int l, int r){
     for(int i = l+1; i <= r; i++){
@@ -99,7 +98,6 @@ void insertionSort(int *v, int l, int r){
 | Insertion sort |     O(n)     | O(n2)      | O(n2) |
 | Bubble sort    | O(n)         | O(n2)      | O(n2) |
 | Selection sort | O(n2)        | O(n2)      | O(n2) |
-
 
 [Macro em c](macroEmC.md)
 

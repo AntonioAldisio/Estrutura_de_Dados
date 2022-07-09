@@ -1,10 +1,11 @@
 # MergeSort
 
 Desvantagem
+
 - Memoria adicional para criar o vetor auxiliar.
 
 ~~~C
-// PRemissa: Vetores V1 e V2 ordernados
+// Premissa: Vetores V1 e V2 ordernados
 Item *merge (Item *a, int la, int ra, Item *b int lb, int rb){
     int tamanhoA = (ra - la + 1);
     int tamanhoB = (rb - lb + 1);
