@@ -8,45 +8,56 @@ typedef struct Saida{
     char letra;
 }Saida;
 
-merge(struct Saida *v,int l,int r1,int r2){
-    struct Saida *v2=malloc(sizeof(Saida)*(r2-l+1));
-    int k=0;
-    int i = l;
-    int j = r1+1;
-    while(i<=r1 && j<=r2){
-        if(v[i].size<v[j].size){
-            v2[k++]=v[i++];
-        }else{
-            v2[k++]=v[j++];
-        }
+
+void merge(struct* v, int l, int meio, int r) {
+    int k = 0, i = l, j = meio+1;
+    struct* aux = malloc(sizeof(struct)*(r-l+1));
+
+    while (i <= meio && j <= r) {
+        if (aux[i].size < aux[j].size)
+            aux[k++] = v[i++];
+        else
+            aux[k++] = v[j++];
     }
-    while(i<= r1)v2[k++]=v[i++];
-    while(j<= r2)v2[k++]=v[j++];
-    k=0;
-    for(i=l;i<=r2;i++){
-        v[i]=v2[k++];
+
+    while (i <= meio) {
+        aux[k++] = v[i++];
     }
-    free(v2);
+
+    while (j <= r) {
+        aux[k++] = v[j++];
+    }
+
+    k = 0;
+    for (i = l; i <= r; ++i)
+        v[i] = aux[k++];
+
+    free(aux);
 }
 
-mergeSort(struct Saida *v,int l, int r){
-    if (l>=r) return 0;
+
+void mergeSort(struct* v, int l, int r) {
+    if (l >= r) return;
+
     int meio = (l+r)/2;
-    mergeSort(v,l,meio);
-    mergeSort(v,meio+1,r);
-    merge(v,l,meio,r);
 
+    mergeSort(v, l, meio);
+    mergeSort(v, meio+1, r);
+
+    merge(v, l, meio, r);
 }
-
 
 int main(){
     char frase[100001];
     scanf("%s", frase);
+
     int j=0;
     int z=0;
+
     struct Saida a[strlen(frase)];
     a[z].size = 0;
     int tamanho = strlen(frase);
+
     for(int i=0;i<tamanho;i++){
         if(frase[j]!= frase[i]){
             j=i;
